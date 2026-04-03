@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Generator Residency</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  /* ── MISSION ── */
+  .mission-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8vw;
+    margin-bottom: 8vh;
+    align-items: start;
+  }
+  @media (max-width: 750px) { .mission-block { grid-template-columns: 1fr; gap: 5vh; } }
+
+  .pull-quote {
+    font-family: 'Josefin Sans', sans-serif;
+    font-style: italic;
+    font-weight: 700;
+    font-size: clamp(22px, 2.8vw, 42px);
+    line-height: 1.2;
+    color: var(--deep-blue);
+    letter-spacing: -0.01em;
+    position: relative;
+    padding-left: 2rem;
+  }
+  .pull-quote::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: var(--gold);
+  }
+
+  /* ── TEAM ── */
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4vw 3vw;
+    margin: 4vh 0 8vh;
+  }
+  @media (max-width: 900px) { .team-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 550px) { .team-grid { grid-template-columns: 1fr; } }
+
+  .team-member {}
+  .team-portrait {
+    width: 100%;
+    aspect-ratio: 1;
+    background: #e8e4dc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2vh;
+  }
+  .team-portrait-init {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 900;
+    font-size: clamp(28px, 4vw, 52px);
+    color: transparent;
+    -webkit-text-stroke: 1.5px #bbb;
+  }
+  .team-name {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 700;
+    font-size: clamp(17px, 1.4vw, 22px);
+    margin-bottom: 4px;
+  }
+  .team-title {
+    font-size: 10px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: #999;
+    display: block;
+    margin-bottom: 1.5vh;
+  }
+  .team-bio {
+    font-size: clamp(14px, 1.1vw, 16px);
+    line-height: 1.7;
+    color: #555;
+  }
+
+  /* ── PARTNERS ── */
+  .partners-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2px;
+    margin: 3vh 0 6vh;
+  }
+  .partner-tile {
+    flex: 1 1 200px;
+    border: 1px solid var(--light-border);
+    padding: 3.5vh 2.5vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .partner-name {
+    font-family: 'Source Serif 4', serif;
+    font-size: clamp(13px, 1.1vw, 16px);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #aaa;
+    text-align: center;
+  }
+
+  /* ── HISTORY ── */
+  .history-list {
+    list-style: none;
+    margin: 3vh 0 6vh;
+    counter-reset: hist;
+  }
+  .history-item {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 2vw;
+    border-top: 1px solid var(--light-border);
+    padding: 3vh 0;
+    align-items: baseline;
+  }
+  .history-year {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 700;
+    font-size: clamp(15px, 1.4vw, 20px);
+    color: var(--gold);
+  }
+  .history-event {
+    font-size: clamp(15px, 1.2vw, 18px);
+    line-height: 1.65;
+    color: #444;
+  }
+
+  /* ── VALUES ── */
+  .values-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    margin: 3vh 0 8vh;
+    border: 1px solid var(--light-border);
+  }
+  @media (max-width: 650px) { .values-grid { grid-template-columns: 1fr; } }
+
+  .value-item {
+    padding: 4.5vh 3.5vw;
+    border-right: 1px solid var(--light-border);
+    border-bottom: 1px solid var(--light-border);
+  }
+  .value-item:nth-child(even) { border-right: none; }
+  .value-item:nth-last-child(-n+2) { border-bottom: none; }
+
+  .value-title {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 700;
+    font-size: clamp(17px, 1.5vw, 22px);
+    margin-bottom: 1.5vh;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .value-title::before {
+    content: '';
+    display: inline-block;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+    flex-shrink: 0;
+  }
+  .value-text {
+    font-size: clamp(14px, 1.1vw, 17px);
+    line-height: 1.75;
+    color: #555;
+  }
+</style>
+</head>
+<body>
+
+<div class="grain"></div>
+
+<nav class="nav">
+  <a class="nav-logo" href="generator-residency.html">Generator Residency</a>
+  <ul class="nav-links">
+    <li><a href="program.html">Program</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+  </ul>
+</nav>
+
+<header class="page-header">
+  <span class="page-eyebrow">Generator Residency</span>
+  <h1 class="page-title">
+    <span class="solid">About</span>
+    <span class="outline">Us</span>
+  </h1>
+  <span class="header-rule"></span>
+  <p class="page-subtitle">Generator was founded on a single conviction: that sustained time and genuine freedom are the scarcest resources in an artist's life, and the most important ones to protect.</p>
+</header>
+
+<main class="page-content">
+
+  <!-- Mission -->
+  <span class="section-label">Mission</span>
+  <div class="mission-block">
+    <div>
+      <h2 class="section-heading">Why Generator exists</h2>
+      <p class="section-body">The art world runs on deadlines, grant cycles, residency applications, production schedules, and the constant pressure to produce work that fits legible categories. These structures have their uses, but they also create a kind of chronic urgency that leaves little room for the slow, uncertain work of genuine inquiry.</p>
+      <br>
+      <p class="section-body">Generator was built to interrupt that rhythm. We offer eight weeks in which the only obligation is to be fully present to the questions that matter to you. No output is required. No exhibition is planned. The work you make here belongs entirely to you.</p>
+      <br>
+      <p class="section-body">We believe that conditions matter — that the physical environment, the quality of attention, the company of peers, and the absence of commercial pressure all shape what it is possible to make. We have designed Generator to provide the best possible conditions we know how to create.</p>
+    </div>
+    <div>
+      <div class="pull-quote">
+        "The work that changed the most wasn't the work we planned — it was the work that surprised us. We want to build the conditions in which that surprise becomes possible."
+      </div>
+      <br><br>
+      <p style="font-size:12px;letter-spacing:0.2em;text-transform:uppercase;color:#aaa;">— Eleanor Marsh, Founder</p>
+    </div>
+  </div>
+
+  <span class="rule"></span>
+
+  <!-- Values -->
+  <span class="section-label">What We Believe</span>
+  <h2 class="section-heading">Our values</h2>
+  <div class="values-grid">
+    <div class="value-item">
+      <div class="value-title">Time is the medium</div>
+      <p class="value-text">We don't truncate residencies to reduce cost. Eight weeks is the minimum in which we believe real transformation is possible. The schedule is designed to front-load orientation and back-load reflection, protecting the middle weeks as a space of pure production.</p>
+    </div>
+    <div class="value-item">
+      <div class="value-title">No output requirements</div>
+      <p class="value-text">We never ask residents to produce a specific body of work, show work in progress, or justify how they spent their time. The only obligation is to show up, be present, and participate in community dinners twice a week.</p>
+    </div>
+    <div class="value-item">
+      <div class="value-title">Radical accessibility</div>
+      <p class="value-text">The stipend, housing, and materials fund exist to ensure that a Generator residency is available to artists regardless of economic circumstance. We do not charge a program fee. We do not require a specific educational background or career stage.</p>
+    </div>
+    <div class="value-item">
+      <div class="value-title">Community over institution</div>
+      <p class="value-text">We are small by design. Twelve residents per cohort is the largest group in which we believe genuine intimacy is possible. The alumni network is the most valuable thing Generator produces — a community of practitioners who share a particular experience of creative freedom.</p>
+    </div>
+  </div>
+
+  <span class="rule"></span>
+
+  <!-- History -->
+  <span class="section-label">History</span>
+  <h2 class="section-heading">How we got here</h2>
+  <ul class="history-list">
+    <li class="history-item">
+      <span class="history-year">2019</span>
+      <span class="history-event">Generator founded by Eleanor Marsh and Thomas Osei in a former textile mill in Hudson, NY. First cohort of six residents, spring and fall sessions.</span>
+    </li>
+    <li class="history-item">
+      <span class="history-year">2020</span>
+      <span class="history-event">Program paused in spring; fall cohort held with modified in-person protocols. New outdoor studio spaces added. Stipend increased to $4,000.</span>
+    </li>
+    <li class="history-item">
+      <span class="history-year">2021</span>
+      <span class="history-event">Full return to three annual cohorts. Cohort size expanded to twelve. Digital fabrication lab added. First alumni exhibition at a partnering institution.</span>
+    </li>
+    <li class="history-item">
+      <span class="history-year">2022</span>
+      <span class="history-event">New housing wing completed, allowing all twelve residents to live on-site. Mentorship program formalized. Stipend raised to $5,000.</span>
+    </li>
+    <li class="history-item">
+      <span class="history-year">2023</span>
+      <span class="history-event">50th cohort resident welcomed. Materials fund introduced. First Generator Prize awarded to an outstanding alumna, Miriam Kowalski.</span>
+    </li>
+    <li class="history-item">
+      <span class="history-year">2024</span>
+      <span class="history-event">Ceramics studio and darkroom completed. Stipend raised to $6,000. Partnership with three international institutions to offer exchange residencies.</span>
+    </li>
+    <li class="history-item">
+      <span class="history-year">2025</span>
+      <span class="history-event">100th resident welcomed. Endowment campaign launched to secure Generator's long-term independence. Applications for 2026 now open.</span>
+    </li>
+  </ul>
+
+  <span class="rule"></span>
+
+  <!-- Team -->
+  <span class="section-label">The Team</span>
+  <h2 class="section-heading">People behind Generator</h2>
+  <div class="team-grid">
+    <div class="team-member">
+      <div class="team-portrait"><span class="team-portrait-init">EM</span></div>
+      <div class="team-name">Eleanor Marsh</div>
+      <span class="team-title">Founder & Director</span>
+      <p class="team-bio">Eleanor is a painter and former curator who founded Generator after a decade running public programs at a major contemporary art institution. She holds an MFA from Yale and lives on the Hudson Valley campus year-round.</p>
+    </div>
+    <div class="team-member">
+      <div class="team-portrait"><span class="team-portrait-init">TO</span></div>
+      <div class="team-name">Thomas Osei</div>
+      <span class="team-title">Co-Founder & Operations</span>
+      <p class="team-bio">Thomas oversees the physical campus, staff, and logistics that make Generator run. He trained as an architect, and the design of the studios reflects his conviction that space is an argument about what matters.</p>
+    </div>
+    <div class="team-member">
+      <div class="team-portrait"><span class="team-portrait-init">AV</span></div>
+      <div class="team-name">Ana Villanueva</div>
+      <span class="team-title">Residency Coordinator</span>
+      <p class="team-bio">Ana manages the application process, resident support, and community programming. She holds a degree in arts administration and previously worked at a literary residency in Vermont.</p>
+    </div>
+    <div class="team-member">
+      <div class="team-portrait"><span class="team-portrait-init">LK</span></div>
+      <div class="team-name">Lev Kaplan</div>
+      <span class="team-title">Facilities & Technical</span>
+      <p class="team-bio">Lev maintains the woodshop, digital fabrication lab, and ceramics studio. He is a sculptor and builder who joined Generator in 2022, building the darkroom and new housing wing.</p>
+    </div>
+  </div>
+
+  <span class="rule"></span>
+
+  <!-- Partners -->
+  <span class="section-label">Supporters & Partners</span>
+  <h2 class="section-heading">Who makes this possible</h2>
+  <p class="section-body" style="margin-bottom:3vh;">Generator is supported by individual donors, institutional grants, and partnerships with organizations that share our belief in the value of creative freedom.</p>
+  <div class="partners-row">
+    <div class="partner-tile"><span class="partner-name">The Fielding Foundation</span></div>
+    <div class="partner-tile"><span class="partner-name">Arts Council of New York</span></div>
+    <div class="partner-tile"><span class="partner-name">NEA</span></div>
+    <div class="partner-tile"><span class="partner-name">Meridian Cultural Trust</span></div>
+    <div class="partner-tile"><span class="partner-name">The Holt Endowment</span></div>
+    <div class="partner-tile"><span class="partner-name">Westbrook Family Fund</span></div>
+  </div>
+
+  <div style="margin-top:2vh;">
+    <a class="btn-outline" href="#">Support Generator →</a>
+  </div>
+
+</main>
+
+<footer class="footer">
+  <span class="footer-logo">Generator Residency</span>
+  <ul class="footer-links">
+    <li><a href="program.html">Program</a></li>
+    <li><a href="about.html">About</a></li>
+  </ul>
+  <span class="footer-copy">© 2026 Generator Residency</span>
+</footer>
+
+</body>
+</html>

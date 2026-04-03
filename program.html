@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Program — Generator Residency</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  /* ── OVERVIEW GRID ── */
+  .overview {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6vw;
+    margin-bottom: 8vh;
+  }
+  @media (max-width: 768px) { .overview { grid-template-columns: 1fr; } }
+
+  /* ── TIMELINE ── */
+  .timeline {
+    position: relative;
+    padding-left: 2.5rem;
+    margin: 4vh 0;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 6px; bottom: 6px;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+  }
+  .timeline-item {
+    position: relative;
+    margin-bottom: 4vh;
+  }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -2.5rem;
+    top: 6px;
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--gold);
+    transform: translateX(-3px);
+  }
+  .timeline-label {
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 6px;
+  }
+  .timeline-heading {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 700;
+    font-size: clamp(18px, 1.6vw, 24px);
+    margin-bottom: 8px;
+  }
+  .timeline-body {
+    font-size: clamp(15px, 1.2vw, 18px);
+    line-height: 1.7;
+    color: #555;
+    max-width: 55ch;
+  }
+
+  /* ── PILLARS ── */
+  .pillars {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3vw;
+    margin: 4vh 0 8vh;
+  }
+  @media (max-width: 900px) { .pillars { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 600px) { .pillars { grid-template-columns: 1fr; } }
+
+  .pillar {
+    border-top: 1px solid var(--light-border);
+    padding-top: 3vh;
+  }
+  .pillar-num {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: clamp(36px, 4vw, 60px);
+    font-weight: 900;
+    color: transparent;
+    -webkit-text-stroke: 1px #ccc;
+    line-height: 1;
+    margin-bottom: 2vh;
+  }
+  .pillar-title {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 700;
+    font-size: clamp(18px, 1.5vw, 22px);
+    margin-bottom: 1.5vh;
+  }
+  .pillar-text {
+    font-size: clamp(15px, 1.2vw, 17px);
+    line-height: 1.7;
+    color: #555;
+  }
+
+  /* ── FAQ ── */
+  .faq-item {
+    border-top: 1px solid var(--light-border);
+    padding: 3vh 0;
+  }
+  .faq-item:last-child { border-bottom: 1px solid var(--light-border); }
+
+  .faq-q {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 700;
+    font-size: clamp(17px, 1.4vw, 21px);
+    margin-bottom: 1.5vh;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 2rem;
+  }
+  .faq-q::after {
+    content: '+';
+    font-family: 'Source Serif 4', serif;
+    font-weight: 300;
+    font-size: 1.4em;
+    color: var(--gold);
+    flex-shrink: 0;
+  }
+  .faq-a {
+    font-size: clamp(15px, 1.2vw, 18px);
+    line-height: 1.75;
+    color: #555;
+    max-width: 70ch;
+  }
+
+  /* ── CTA BAND ── */
+  .cta-band {
+    background: var(--deep-blue);
+    color: var(--white);
+    padding: 8vh 5vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4vw;
+    flex-wrap: wrap;
+  }
+  .cta-band-text {}
+  .cta-band-eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.38em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 1.5vh;
+  }
+  .cta-band-heading {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 900;
+    font-style: italic;
+    font-size: clamp(28px, 3.5vw, 54px);
+    line-height: 1.0;
+    color: var(--white);
+  }
+  .btn-light {
+    display: inline-block;
+    font-family: 'Josefin Sans', sans-serif;
+    font-style: italic;
+    font-weight: 700;
+    font-size: clamp(14px, 1.2vw, 18px);
+    letter-spacing: 0.08em;
+    color: var(--text);
+    background: var(--white);
+    text-decoration: none;
+    padding: 0.9em 2.4em;
+    position: relative;
+    transition: background 0.3s, color 0.3s;
+    white-space: nowrap;
+  }
+  .btn-light::after {
+    content: '';
+    position: absolute;
+    bottom: -5px; right: -5px;
+    width: 100%; height: 100%;
+    border: 1.5px solid var(--gold);
+    pointer-events: none;
+  }
+  .btn-light:hover { background: var(--gold); color: var(--white); }
+</style>
+</head>
+<body>
+
+<div class="grain"></div>
+
+<nav class="nav">
+  <a class="nav-logo" href="generator-residency.html">Generator Residency</a>
+  <ul class="nav-links">
+    <li><a href="program.html" class="active">Program</a></li>
+    <li><a href="about.html">About</a></li>
+  </ul>
+</nav>
+
+<header class="page-header">
+  <span class="page-eyebrow">Generator Residency</span>
+  <h1 class="page-title">
+    <span class="solid">The</span>
+    <span class="outline">Program</span>
+  </h1>
+  <span class="header-rule"></span>
+  <p class="page-subtitle">Eight weeks of uninterrupted creative research, structured mentorship, and peer exchange — designed for artists at a critical inflection point.</p>
+</header>
+
+<main class="page-content">
+
+  <!-- Overview -->
+  <div class="overview">
+    <div>
+      <span class="section-label">What It Is</span>
+      <h2 class="section-heading">A residency built around the work</h2>
+      <p class="section-body">Generator is a full-time residency for practicing artists, writers, and interdisciplinary makers. Residents receive unstructured studio time, a living stipend, access to shared fabrication facilities, and a cohort of peers committed to rigorous creative exchange.</p>
+      <br>
+      <p class="section-body">We believe the conditions of production matter. Generator strips away the pressures of commercial deadlines and replaces them with space — physical, temporal, and intellectual — to pursue the questions that matter most.</p>
+    </div>
+    <div>
+      <span class="section-label">At a Glance</span>
+      <div style="display:flex;flex-direction:column;gap:3vh;margin-top:1vh;">
+        <div style="border-left:2px solid var(--gold);padding-left:1.5rem;">
+          <span style="font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:#999;display:block;margin-bottom:4px;">Duration</span>
+          <span style="font-family:'Playfair Display',serif;font-size:clamp(18px,1.6vw,24px);font-weight:700;">8 Weeks</span>
+        </div>
+        <div style="border-left:2px solid var(--gold);padding-left:1.5rem;">
+          <span style="font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:#999;display:block;margin-bottom:4px;">Cohort Size</span>
+          <span style="font-family:'Playfair Display',serif;font-size:clamp(18px,1.6vw,24px);font-weight:700;">12 Residents</span>
+        </div>
+        <div style="border-left:2px solid var(--gold);padding-left:1.5rem;">
+          <span style="font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:#999;display:block;margin-bottom:4px;">Stipend</span>
+          <span style="font-family:'Playfair Display',serif;font-size:clamp(18px,1.6vw,24px);font-weight:700;">$6,000</span>
+        </div>
+        <div style="border-left:2px solid var(--gold);padding-left:1.5rem;">
+          <span style="font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:#999;display:block;margin-bottom:4px;">Location</span>
+          <span style="font-family:'Playfair Display',serif;font-size:clamp(18px,1.6vw,24px);font-weight:700;">Hudson Valley, NY</span>
+        </div>
+        <div style="border-left:2px solid var(--gold);padding-left:1.5rem;">
+          <span style="font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:#999;display:block;margin-bottom:4px;">Cohorts per Year</span>
+          <span style="font-family:'Playfair Display',serif;font-size:clamp(18px,1.6vw,24px);font-weight:700;">3</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <span class="rule"></span>
+
+  <!-- Program Pillars -->
+  <span class="section-label">Structure</span>
+  <h2 class="section-heading">Three pillars</h2>
+  <div class="pillars">
+    <div class="pillar">
+      <div class="pillar-num">01</div>
+      <h3 class="pillar-title">Unstructured Time</h3>
+      <p class="pillar-text">Five days a week, the studio is yours. No deliverables, no progress reports, no obligations beyond the work itself. We provide the space and get out of the way.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-num">02</div>
+      <h3 class="pillar-title">Mentorship</h3>
+      <p class="pillar-text">Each resident is paired with a senior practitioner for the duration of the residency. Weekly one-on-ones, informal studio visits, and a closing critique with the full cohort.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-num">03</div>
+      <h3 class="pillar-title">Peer Exchange</h3>
+      <p class="pillar-text">Cohort dinners on Tuesdays and Thursdays. An optional mid-residency open studio. A final group presentation open to alumni and the wider Generator community.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-num">04</div>
+      <h3 class="pillar-title">Facilities</h3>
+      <p class="pillar-text">24/7 access to private studios, a shared woodshop, a digital fabrication lab with laser cutters and CNC router, a ceramics studio, and a fully equipped darkroom.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-num">05</div>
+      <h3 class="pillar-title">Housing</h3>
+      <p class="pillar-text">Private on-site housing for residents who need it. Common kitchen and living spaces are shared. The campus is a 90-minute train ride from Penn Station.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-num">06</div>
+      <h3 class="pillar-title">Materials Fund</h3>
+      <p class="pillar-text">A $1,200 materials budget, disbursed at the start of the residency. No receipts required, no restrictions on use. It's yours to spend as the work demands.</p>
+    </div>
+  </div>
+
+  <span class="rule"></span>
+
+  <!-- Timeline -->
+  <span class="section-label">2026 Dates</span>
+  <h2 class="section-heading">Three cohorts</h2>
+  <div class="timeline">
+    <div class="timeline-item">
+      <span class="timeline-label">Cohort I — Spring</span>
+      <div class="timeline-heading">March 9 – May 1, 2026</div>
+      <p class="timeline-body">Applications open November 1, 2025. Notification by January 15, 2026.</p>
+    </div>
+    <div class="timeline-item">
+      <span class="timeline-label">Cohort II — Summer</span>
+      <div class="timeline-heading">June 8 – July 31, 2026</div>
+      <p class="timeline-body">Applications open February 1, 2026. Notification by April 15, 2026.</p>
+    </div>
+    <div class="timeline-item">
+      <span class="timeline-label">Cohort III — Fall</span>
+      <div class="timeline-heading">September 14 – November 6, 2026</div>
+      <p class="timeline-body">Applications open May 1, 2026. Notification by July 15, 2026.</p>
+    </div>
+  </div>
+
+  <span class="rule"></span>
+
+  <!-- FAQ -->
+  <span class="section-label">Questions</span>
+  <h2 class="section-heading">Frequently asked</h2>
+  <div style="margin-top:3vh;">
+    <div class="faq-item">
+      <div class="faq-q">Who is eligible to apply?</div>
+      <p class="faq-a">Generator is open to artists, writers, and interdisciplinary practitioners at any career stage. There are no degree requirements. We do not accept students currently enrolled in degree programs. International applicants are welcome; we do not sponsor visas.</p>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Is attendance required for the full eight weeks?</div>
+      <p class="faq-a">Yes. The residency is a full-time commitment. Residents are expected to be on campus for the duration of their cohort. We are unable to accommodate part-time or remote participation.</p>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Can I bring my family or partner?</div>
+      <p class="faq-a">On-site housing is for residents only. Partners, children, and pets are not able to stay on campus, though visitors are welcome for day visits on weekends.</p>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What does the application require?</div>
+      <p class="faq-a">A portfolio of recent work (10–20 images or equivalent), a project proposal of no more than 600 words describing what you intend to work on during the residency, a CV, and two letters of support. No application fee.</p>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Does Generator retain rights to work produced?</div>
+      <p class="faq-a">No. All work produced during the residency belongs entirely to the resident. We ask only that residents acknowledge Generator in public presentations of work developed here.</p>
+    </div>
+  </div>
+
+</main>
+
+<!-- CTA -->
+<section class="cta-band">
+  <div class="cta-band-text">
+    <span class="cta-band-eyebrow">Applications Now Open</span>
+    <div class="cta-band-heading">Apply for<br>2026</div>
+  </div>
+  <a class="btn-light" href="#">Apply Now →</a>
+</section>
+
+<footer class="footer">
+  <span class="footer-logo">Generator Residency</span>
+  <ul class="footer-links">
+    <li><a href="program.html">Program</a></li>
+    <li><a href="about.html">About</a></li>
+  </ul>
+  <span class="footer-copy">© 2026 Generator Residency</span>
+</footer>
+
+</body>
+</html>
