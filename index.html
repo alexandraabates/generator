@@ -30,14 +30,21 @@
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
 
+  nav.scrolled {
+    background: rgba(245,245,243,0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: background 0.3s ease, backdrop-filter 0.3s ease;
+  }
   .btn-apply::after {
     content: '';
     position: absolute;
     inset: 0;
-    border: 1.5px solid #1a2744;
+    border: 1.5px solid #4a4870;
     pointer-events: none;
   }
-  .btn-apply:hover::after { transform: translate(3px, 3px); }
+  .btn-apply:hover::after { border-width: 2.5px; }
+  .btn-apply:hover { font-weight: 700; }
 
   .faq-question::after {
     content: '+';
@@ -58,7 +65,7 @@
     color: transparent;
     -webkit-text-stroke: 1.5px #b0bec9;
   }
-  .nav-links a:hover { color: #1a2744; }
+  .nav-links a:hover { color: #4a4870; }
 </style>
 </head>
 <body class="min-h-full bg-[#f5f5f3] font-['dapifer',serif]">
@@ -69,36 +76,37 @@
   <img class="hero-img absolute inset-0 w-full h-full object-contain object-left-bottom contrast-[1.15] saturate-[1.2] opacity-0 [animation:imgReveal_2s_cubic-bezier(0.16,1,0.3,1)_0.3s_forwards]" src="factory_hero.png">
   <div class="absolute inset-0 pointer-events-none z-[2]" style="background: linear-gradient(to bottom, rgba(245,245,243,0.55) 0%, rgba(245,245,243,0.1) 40%, rgba(245,245,243,0.0) 65%, rgba(245,245,243,0.6) 100%), linear-gradient(to left, rgba(245,245,243,0.7) 0%, rgba(245,245,243,0.3) 35%, transparent 60%);"></div>
 
-  <nav class="fixed top-0 left-0 right-0 px-[5vw] py-[3.2vh] flex items-center justify-between z-20 bg-transparent opacity-0 [animation:fadeDown_0.9s_ease_1.2s_forwards]">
-    <a class="font-['dapifer',serif] text-[16px] font-black tracking-[0.02em] uppercase text-[#1a2744] no-underline" href="generator-residency.html" style="text-decoration:none;">Generator Residency</a>
+  <nav class="fixed top-0 left-0 right-0 px-[5vw] py-[3.2vh] flex items-center justify-between z-20 opacity-0 [animation:fadeDown_0.9s_ease_1.2s_forwards]">
+    <a class="font-['dapifer',serif] text-[16px] font-medium tracking-[0.02em] uppercase text-[#4a4870] no-underline" href="generator-residency.html" style="text-decoration:none;">Generator Residency</a>
     <ul class="flex gap-[3vw] list-none">
-      <li><a class="font-['dapifer',serif] text-[16px] font-black tracking-[0.02em] uppercase text-[#1a2744] no-underline transition-colors duration-300 nav-links" href="#details">Details</a></li>
-      <li><a class="font-['dapifer',serif] text-[16px] font-black tracking-[0.02em] uppercase text-[#1a2744] no-underline transition-colors duration-300 nav-links" href="#advisors">Advisors</a></li>
-      <li><a class="font-['dapifer',serif] text-[16px] font-black tracking-[0.02em] uppercase text-[#1a2744] no-underline transition-colors duration-300 nav-links" href="#faq">FAQ</a></li>
+      <li><a class="font-['dapifer',serif] text-[16px] font-medium tracking-[0.02em] uppercase text-[#4a4870] no-underline transition-colors duration-300 nav-links" href="#details">Details</a></li>
+      <li><a class="font-['dapifer',serif] text-[16px] font-medium tracking-[0.02em] uppercase text-[#4a4870] no-underline transition-colors duration-300 nav-links" href="#advisors">Advisors</a></li>
+      <li><a class="font-['dapifer',serif] text-[16px] font-medium tracking-[0.02em] uppercase text-[#4a4870] no-underline transition-colors duration-300 nav-links" href="#faq">FAQ</a></li>
     </ul>
   </nav>
 
   <div class="absolute top-[30%] left-[5vw] right-[5vw] z-10 text-right">
-    <h1 class="font-['dapifer-stencil',serif] font-normal text-[clamp(44px,7vw,120px)] leading-[1.05] tracking-[-0.02em] text-[#1a2744] opacity-0 translate-y-6 [animation:rise_1.1s_cubic-bezier(0.16,1,0.3,1)_0.45s_forwards]">
+    <h1 class="font-['dapifer',serif] font-normal text-[clamp(44px,7vw,120px)] leading-[1.05] tracking-[-0.02em] text-[#4a4870] opacity-0 translate-y-6 [animation:rise_1.1s_cubic-bezier(0.16,1,0.3,1)_0.45s_forwards]">
       <span class="inline">Generator</span>
       <span class="inline">Residency</span>
     </h1>
-    <span class="block mt-[6vh] font-['dapifer',serif] font-bold text-[18px] tracking-[0.2em] uppercase text-[#1a2744] opacity-0 [animation:rise_0.7s_ease_0.8s_forwards]">Kairos x Constellation</span>
-    <span class="block mt-[1.5vh] mb-[3vh] font-['dapifer',serif] font-bold text-[18px] tracking-[0.2em] uppercase text-[#1a2744] opacity-0 [animation:rise_0.7s_ease_0.8s_forwards]">Summer 2026 · Berkeley, CA</span>
-    <a class="btn-apply inline-block mt-[5vh] font-['dapifer',serif] font-bold text-[clamp(15px,1.4vw,22px)] tracking-[0.1em] text-[#1a2744] bg-transparent no-underline py-[1em] px-[2.6em] text-center relative opacity-0 transition-[background,transform] duration-300 hover:bg-[#2b5778] hover:translate-x-[-2px] hover:translate-y-[-2px] [animation:rise_0.8s_ease_1.3s_forwards]" href="program.html">Apply Now →</a>
+    <span class="block mt-[6vh] font-['dapifer',serif] font-normal text-[18px] tracking-[0.2em] uppercase text-[#4a4870] opacity-0 [animation:rise_0.7s_ease_0.8s_forwards]">Kairos × Constellation</span>
+    <span class="block mt-[1.5vh] mb-[3vh] font-['dapifer',serif] font-normal text-[18px] tracking-[0.2em] uppercase text-[#4a4870] opacity-0 [animation:rise_0.7s_ease_0.8s_forwards]">Summer 2026 · Berkeley, CA</span>
+    <a class="btn-apply inline-block mt-[5vh] font-['dapifer',serif] font-medium text-[clamp(15px,1.4vw,22px)] tracking-[0.1em] text-[#4a4870] bg-transparent no-underline py-[1em] px-[2.6em] text-center relative opacity-0 transition-all duration-150 [animation:rise_0.8s_ease_1.3s_forwards]" href="program.html">Apply Now →</a>
   </div>
 
 </section>
 
 <!-- ── DETAILS ── -->
 <section class="px-[5vw] py-[10vh] max-w-[1400px] mx-auto" id="details">
-  <h2 class="s-heading font-['dapifer-stencil',serif] font-normal text-[#1a2744] text-[clamp(36px,5vw,72px)] leading-[0.95] tracking-[-0.02em] mb-[5vh]">
+  <h2 class="s-heading font-['dapifer',serif] font-normal text-[#4a4870] text-[clamp(36px,5vw,72px)] leading-[0.95] tracking-[-0.02em] mb-[5vh]">
     <span class="inline">Details</span>
   </h2>
-  <div class="flex flex-col gap-[2.5vh] mt-[2vh] max-w-[680px] text-[clamp(15px,1.3vw,19px)] leading-[1.8] text-[#1a2744]">
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
-    <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet consectetur adipisci velit.</p>
+  <div class="flex flex-col gap-[2.5vh] mt-[2vh] max-w-[680px] text-[clamp(15px,1.3vw,19px)] leading-[1.8] text-[#4a4870]">
+    <p>AI safety is bottlenecked by generalist talent. This residency seeks to fix that.</p>
+    <p>Kairos and Constellation will select 15-30 highly agentic, conscientious, early-career residents, scaffold them to complete impactful, concrete AI safety projects, and support them to find a role at an AI safety organization, continue their project, or start their own organization.</p>
+    <p>The program will run from June 15 – August 28, 2026. All residents will work out of Constellation in Berkeley, California. We will provide a financial stipend and can provide visa support.</p>
+    <p>Apply here by April 27.</p>
   </div>
 </section>
 
@@ -107,56 +115,56 @@
 <!-- ── MENTORS ── -->
 <section class="py-[10vh] px-[5vw] bg-[#f0f3f6]" id="advisors">
   <div class="max-w-[1400px] mx-auto">
-    <h2 class="s-heading font-['dapifer-stencil',serif] font-normal text-[#1a2744] text-[clamp(36px,5vw,72px)] leading-[0.95] tracking-[-0.02em] mb-[5vh]">
+    <h2 class="s-heading font-['dapifer',serif] font-normal text-[#4a4870] text-[clamp(36px,5vw,72px)] leading-[0.95] tracking-[-0.02em] mb-[5vh]">
       <span class="inline">Advisors</span>
     </h2>
     <div class="grid grid-cols-4 gap-[2.5vw] mt-[2vh] max-[900px]:grid-cols-2 max-[550px]:grid-cols-1">
       <div>
-        <div class="w-full aspect-square bg-[#dce3ea] flex items-center justify-center mb-[2.5vh] rounded-full"><span class="advisor-initials font-['dapifer',serif] font-black text-[clamp(28px,3vw,48px)]">LI</span></div>
-        <div class="font-['dapifer',serif] font-bold text-[clamp(15px,1.3vw,19px)] mb-1">Lorem Ipsum Dolor</div>
-        <span class="block text-[10px] tracking-[0.28em] uppercase text-[#1a2744] mb-[1vh]">Adipiscing · Elit</span>
+        <div class="w-full aspect-square bg-[#dce3ea] flex items-center justify-center mb-[2.5vh] rounded-full"><span class="advisor-initials font-['dapifer',serif] font-black text-[clamp(28px,3vw,48px)] text-[#4a4870]">LI</span></div>
+        <div class="font-['dapifer',serif] font-normal text-[clamp(15px,1.3vw,19px)] mb-1 text-[#4a4870]">Lorem Ipsum Dolor</div>
+        <span class="block text-[10px] tracking-[0.28em] uppercase text-[#4a4870] mb-[1vh]">Adipiscing · Elit</span>
         
       </div>
       <div>
-        <div class="w-full aspect-square bg-[#dce3ea] flex items-center justify-center mb-[2.5vh] rounded-full"><span class="advisor-initials font-['dapifer',serif] font-black text-[clamp(28px,3vw,48px)]">CA</span></div>
-        <div class="font-['dapifer',serif] font-bold text-[clamp(15px,1.3vw,19px)] mb-1">Consectetur Amet</div>
-        <span class="block text-[10px] tracking-[0.28em] uppercase text-[#1a2744] mb-[1vh]">Labore · Dolore</span>
+        <div class="w-full aspect-square bg-[#dce3ea] flex items-center justify-center mb-[2.5vh] rounded-full"><span class="advisor-initials font-['dapifer',serif] font-black text-[clamp(28px,3vw,48px)] text-[#4a4870]">CA</span></div>
+        <div class="font-['dapifer',serif] font-normal text-[clamp(15px,1.3vw,19px)] mb-1 text-[#4a4870]">Consectetur Amet</div>
+        <span class="block text-[10px] tracking-[0.28em] uppercase text-[#4a4870] mb-[1vh]">Labore · Dolore</span>
         
       </div>
       <div>
-        <div class="w-full aspect-square bg-[#dce3ea] flex items-center justify-center mb-[2.5vh] rounded-full"><span class="advisor-initials font-['dapifer',serif] font-black text-[clamp(28px,3vw,48px)]">MA</span></div>
-        <div class="font-['dapifer',serif] font-bold text-[clamp(15px,1.3vw,19px)] mb-1">Magna Aliqua Enim</div>
-        <span class="block text-[10px] tracking-[0.28em] uppercase text-[#1a2744] mb-[1vh]">Quis · Nostrud</span>
+        <div class="w-full aspect-square bg-[#dce3ea] flex items-center justify-center mb-[2.5vh] rounded-full"><span class="advisor-initials font-['dapifer',serif] font-black text-[clamp(28px,3vw,48px)] text-[#4a4870]">MA</span></div>
+        <div class="font-['dapifer',serif] font-normal text-[clamp(15px,1.3vw,19px)] mb-1 text-[#4a4870]">Magna Aliqua Enim</div>
+        <span class="block text-[10px] tracking-[0.28em] uppercase text-[#4a4870] mb-[1vh]">Quis · Nostrud</span>
         
       </div>
       <div>
-        <div class="w-full aspect-square bg-[#dce3ea] flex items-center justify-center mb-[2.5vh] rounded-full"><span class="advisor-initials font-['dapifer',serif] font-black text-[clamp(28px,3vw,48px)]">SP</span></div>
-        <div class="font-['dapifer',serif] font-bold text-[clamp(15px,1.3vw,19px)] mb-1">Sed Perspiciatis</div>
-        <span class="block text-[10px] tracking-[0.28em] uppercase text-[#1a2744] mb-[1vh]">Unde · Omnis</span>
+        <div class="w-full aspect-square bg-[#dce3ea] flex items-center justify-center mb-[2.5vh] rounded-full"><span class="advisor-initials font-['dapifer',serif] font-black text-[clamp(28px,3vw,48px)] text-[#4a4870]">SP</span></div>
+        <div class="font-['dapifer',serif] font-normal text-[clamp(15px,1.3vw,19px)] mb-1 text-[#4a4870]">Sed Perspiciatis</div>
+        <span class="block text-[10px] tracking-[0.28em] uppercase text-[#4a4870] mb-[1vh]">Unde · Omnis</span>
         
       </div>
       <div>
-        <div class="w-full aspect-square bg-[#dce3ea] flex items-center justify-center mb-[2.5vh] rounded-full"><span class="advisor-initials font-['dapifer',serif] font-black text-[clamp(28px,3vw,48px)]">NE</span></div>
-        <div class="font-['dapifer',serif] font-bold text-[clamp(15px,1.3vw,19px)] mb-1">Nemo Enim Velit</div>
-        <span class="block text-[10px] tracking-[0.28em] uppercase text-[#1a2744] mb-[1vh]">Ipsam · Voluptas</span>
+        <div class="w-full aspect-square bg-[#dce3ea] flex items-center justify-center mb-[2.5vh] rounded-full"><span class="advisor-initials font-['dapifer',serif] font-black text-[clamp(28px,3vw,48px)] text-[#4a4870]">NE</span></div>
+        <div class="font-['dapifer',serif] font-normal text-[clamp(15px,1.3vw,19px)] mb-1 text-[#4a4870]">Nemo Enim Velit</div>
+        <span class="block text-[10px] tracking-[0.28em] uppercase text-[#4a4870] mb-[1vh]">Ipsam · Voluptas</span>
         
       </div>
       <div>
-        <div class="w-full aspect-square bg-[#dce3ea] flex items-center justify-center mb-[2.5vh] rounded-full"><span class="advisor-initials font-['dapifer',serif] font-black text-[clamp(28px,3vw,48px)]">UT</span></div>
-        <div class="font-['dapifer',serif] font-bold text-[clamp(15px,1.3vw,19px)] mb-1">Ut Labore Magnam</div>
-        <span class="block text-[10px] tracking-[0.28em] uppercase text-[#1a2744] mb-[1vh]">Quaerat · Velit</span>
+        <div class="w-full aspect-square bg-[#dce3ea] flex items-center justify-center mb-[2.5vh] rounded-full"><span class="advisor-initials font-['dapifer',serif] font-black text-[clamp(28px,3vw,48px)] text-[#4a4870]">UT</span></div>
+        <div class="font-['dapifer',serif] font-normal text-[clamp(15px,1.3vw,19px)] mb-1 text-[#4a4870]">Ut Labore Magnam</div>
+        <span class="block text-[10px] tracking-[0.28em] uppercase text-[#4a4870] mb-[1vh]">Quaerat · Velit</span>
         
       </div>
       <div>
-        <div class="w-full aspect-square bg-[#dce3ea] flex items-center justify-center mb-[2.5vh] rounded-full"><span class="advisor-initials font-['dapifer',serif] font-black text-[clamp(28px,3vw,48px)]">QU</span></div>
-        <div class="font-['dapifer',serif] font-bold text-[clamp(15px,1.3vw,19px)] mb-1">Quis Autem Vel</div>
-        <span class="block text-[10px] tracking-[0.28em] uppercase text-[#1a2744] mb-[1vh]">Eum · Iure</span>
+        <div class="w-full aspect-square bg-[#dce3ea] flex items-center justify-center mb-[2.5vh] rounded-full"><span class="advisor-initials font-['dapifer',serif] font-black text-[clamp(28px,3vw,48px)] text-[#4a4870]">QU</span></div>
+        <div class="font-['dapifer',serif] font-normal text-[clamp(15px,1.3vw,19px)] mb-1 text-[#4a4870]">Quis Autem Vel</div>
+        <span class="block text-[10px] tracking-[0.28em] uppercase text-[#4a4870] mb-[1vh]">Eum · Iure</span>
         
       </div>
       <div>
-        <div class="w-full aspect-square bg-[#dce3ea] flex items-center justify-center mb-[2.5vh] rounded-full"><span class="advisor-initials font-['dapifer',serif] font-black text-[clamp(28px,3vw,48px)]">AT</span></div>
-        <div class="font-['dapifer',serif] font-bold text-[clamp(15px,1.3vw,19px)] mb-1">At Vero Eos Qui</div>
-        <span class="block text-[10px] tracking-[0.28em] uppercase text-[#1a2744] mb-[1vh]">Accusamus · Iusto</span>
+        <div class="w-full aspect-square bg-[#dce3ea] flex items-center justify-center mb-[2.5vh] rounded-full"><span class="advisor-initials font-['dapifer',serif] font-black text-[clamp(28px,3vw,48px)] text-[#4a4870]">AT</span></div>
+        <div class="font-['dapifer',serif] font-normal text-[clamp(15px,1.3vw,19px)] mb-1 text-[#4a4870]">At Vero Eos Qui</div>
+        <span class="block text-[10px] tracking-[0.28em] uppercase text-[#4a4870] mb-[1vh]">Accusamus · Iusto</span>
         
       </div>
     </div>
@@ -167,41 +175,60 @@
 
 <!-- ── FAQ ── -->
 <section class="px-[5vw] py-[10vh] max-w-[1400px] mx-auto" id="faq">
-  <h2 class="s-heading font-['dapifer-stencil',serif] font-normal text-[#1a2744] text-[clamp(36px,5vw,72px)] leading-[0.95] tracking-[-0.02em] mb-[5vh]">
+  <h2 class="s-heading font-['dapifer',serif] font-normal text-[#4a4870] text-[clamp(36px,5vw,72px)] leading-[0.95] tracking-[-0.02em] mb-[5vh]">
     <span class="inline">FAQ</span>
   </h2>
   <div class="max-w-[860px]">
     <details class="border-t border-[#e2e0db]">
-      <summary class="faq-question font-['dapifer',serif] font-bold text-[clamp(16px,1.4vw,21px)] py-[3vh] cursor-pointer flex justify-between items-center gap-8 list-none select-none">When do applications close?</summary>
-      <p class="text-[clamp(15px,1.2vw,18px)] leading-[1.8] text-[#1a2744] pb-[3vh] max-w-[70ch]"></p>
+      <summary class="faq-question font-['dapifer',serif] font-normal text-[#4a4870] text-[clamp(16px,1.4vw,21px)] py-[3vh] cursor-pointer flex justify-between items-center gap-8 list-none select-none">When do applications close?</summary>
+      <p class="text-[clamp(15px,1.2vw,18px)] leading-[1.8] text-[#4a4870] pb-[3vh] max-w-[70ch]">April 27, 2026.</p>
     </details>
     <details class="border-t border-[#e2e0db]">
-      <summary class="faq-question font-['dapifer',serif] font-bold text-[clamp(16px,1.4vw,21px)] py-[3vh] cursor-pointer flex justify-between items-center gap-8 list-none select-none">When will I hear back about my application?</summary>
-      <p class="text-[clamp(15px,1.2vw,18px)] leading-[1.8] text-[#1a2744] pb-[3vh] max-w-[70ch]"></p>
+      <summary class="faq-question font-['dapifer',serif] font-normal text-[#4a4870] text-[clamp(16px,1.4vw,21px)] py-[3vh] cursor-pointer flex justify-between items-center gap-8 list-none select-none">When will I hear back about my application?</summary>
+      <p class="text-[clamp(15px,1.2vw,18px)] leading-[1.8] text-[#4a4870] pb-[3vh] max-w-[70ch]">We will process applications on a rolling basis. You will likely hear back within a few weeks of submitting your application.</p>
     </details>
     <details class="border-t border-[#e2e0db]">
-      <summary class="faq-question font-['dapifer',serif] font-bold text-[clamp(16px,1.4vw,21px)] py-[3vh] cursor-pointer flex justify-between items-center gap-8 list-none select-none">What is the program timeline?</summary>
-      <p class="text-[clamp(15px,1.2vw,18px)] leading-[1.8] text-[#1a2744] pb-[3vh] max-w-[70ch]"></p>
+      <summary class="faq-question font-['dapifer',serif] font-normal text-[#4a4870] text-[clamp(16px,1.4vw,21px)] py-[3vh] cursor-pointer flex justify-between items-center gap-8 list-none select-none">What is the application process?</summary>
+      <p class="text-[clamp(15px,1.2vw,18px)] leading-[1.8] text-[#4a4870] pb-[3vh] max-w-[70ch]">You will submit your initial application. If invited to continue, you will complete a 2-4 hour trial task, after which we will make final acceptance decisions.</p>
     </details>
     <details class="border-t border-[#e2e0db]">
-      <summary class="faq-question font-['dapifer',serif] font-bold text-[clamp(16px,1.4vw,21px)] py-[3vh] cursor-pointer flex justify-between items-center gap-8 list-none select-none">Does the program provide funding?</summary>
-      <p class="text-[clamp(15px,1.2vw,18px)] leading-[1.8] text-[#1a2744] pb-[3vh] max-w-[70ch]"></p>
+      <summary class="faq-question font-['dapifer',serif] font-normal text-[#4a4870] text-[clamp(16px,1.4vw,21px)] py-[3vh] cursor-pointer flex justify-between items-center gap-8 list-none select-none">What is the program timeline?</summary>
+      <p class="text-[clamp(15px,1.2vw,18px)] leading-[1.8] text-[#4a4870] pb-[3vh] max-w-[70ch]">The program will run from June 15 – August 28. The first two weeks will primarily focus on matching residents to projects. Residents will also meet the Constellation network and build context on AI safety. The remainder of the program will consist of project execution.</p>
     </details>
     <details class="border-t border-[#e2e0db]">
-      <summary class="faq-question font-['dapifer',serif] font-bold text-[clamp(16px,1.4vw,21px)] py-[3vh] cursor-pointer flex justify-between items-center gap-8 list-none select-none">Where is the program? Is in-person work required?</summary>
-      <p class="text-[clamp(15px,1.2vw,18px)] leading-[1.8] text-[#1a2744] pb-[3vh] max-w-[70ch]"></p>
+      <summary class="faq-question font-['dapifer',serif] font-normal text-[#4a4870] text-[clamp(16px,1.4vw,21px)] py-[3vh] cursor-pointer flex justify-between items-center gap-8 list-none select-none">Does the program provide funding?</summary>
+      <p class="text-[clamp(15px,1.2vw,18px)] leading-[1.8] text-[#4a4870] pb-[3vh] max-w-[70ch]">Yes, we will provide a stipend.</p>
+    </details>
+    <details class="border-t border-[#e2e0db]">
+      <summary class="faq-question font-['dapifer',serif] font-normal text-[#4a4870] text-[clamp(16px,1.4vw,21px)] py-[3vh] cursor-pointer flex justify-between items-center gap-8 list-none select-none">Where is the program? Is in-person work required?</summary>
+      <p class="text-[clamp(15px,1.2vw,18px)] leading-[1.8] text-[#4a4870] pb-[3vh] max-w-[70ch]">Generator will take place in the Constellation office in Berkeley, California. In person work is mostly required – although if you have a special circumstance, please apply anyway and let us know!</p>
+    </details>
+    <details class="border-t border-[#e2e0db]">
+      <summary class="faq-question font-['dapifer',serif] font-normal text-[#4a4870] text-[clamp(16px,1.4vw,21px)] py-[3vh] cursor-pointer flex justify-between items-center gap-8 list-none select-none">How will I be matched with a project and advisor?</summary>
+      <p class="text-[clamp(15px,1.2vw,18px)] leading-[1.8] text-[#4a4870] pb-[3vh] max-w-[70ch]">The first two weeks of the program will focus on matching. Kairos and Constellation will organize residents into groups of 1-4, and match each group with a project and a mentor. Residents may work on projects from our list, or on their own ideas.</p>
     </details>
     <details class="border-t border-[#e2e0db] border-b border-b-[#e2e0db]">
-      <summary class="faq-question font-['dapifer',serif] font-bold text-[clamp(16px,1.4vw,21px)] py-[3vh] cursor-pointer flex justify-between items-center gap-8 list-none select-none">How will I be matched with a project and advisor?</summary>
-      <p class="text-[clamp(15px,1.2vw,18px)] leading-[1.8] text-[#1a2744] pb-[3vh] max-w-[70ch]"></p>
+      <summary class="faq-question font-['dapifer',serif] font-normal text-[#4a4870] text-[clamp(16px,1.4vw,21px)] py-[3vh] cursor-pointer flex justify-between items-center gap-8 list-none select-none">What are some example projects?</summary>
+      <div class="text-[clamp(15px,1.2vw,18px)] leading-[1.8] text-[#4a4870] pb-[3vh] max-w-[70ch]">
+        <p class="mb-[1.5vh]">Here are a few examples:</p>
+        <p class="mb-[1.5vh]"><strong>Workshops and conferences.</strong> Events have historically been extremely valuable for setting up new collaborations and catching attendees up to speed on the latest research in a field. Work with an organization to create a workshop focusing on an area of policy or technical research (e.g., ControlConf), or run a retreat bringing talent into AI safety (e.g., Action Potential).</p>
+        <p class="mb-[1.5vh]"><strong>Better recruiting pipelines.</strong> Multiple impactful organizations in the ecosystem have quite ad-hoc and inefficient recruiting pipelines, bottlenecking growth and wasting researcher time. Work with them to set up robust yet flexible systems that can be used to rapidly expand organizations' headcount.</p>
+        <p><strong>Mass human data collection.</strong> There are many tasks for which it is useful, but somewhat expensive, to get data on how humans complete them. For instance, time-horizon data, persuasion RCTs, novice uplift studies, etc. Work with an organization or multiple organizations to develop a fast suite of human baselines that takes advantage of economies of scale.</p>
+      </div>
     </details>
   </div>
 </section>
 
 <footer class="py-[6vh] px-[5vw] border-t border-[#e2e0db] flex items-center justify-between flex-wrap gap-[2vh] font-['dapifer',serif]">
-  <span class="text-[11px] tracking-[0.02em] uppercase text-[#1a2744]">Generator Residency</span>
+  <span class="text-[11px] tracking-[0.02em] uppercase text-[#4a4870]">Generator Residency</span>
   <span class="text-[10px] tracking-[0.1em] text-[#bbb]">© 2026 Generator Residency</span>
 </footer>
 
+<script>
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 10);
+  });
+</script>
 </body>
 </html>
